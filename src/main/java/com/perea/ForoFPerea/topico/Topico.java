@@ -18,8 +18,8 @@ public class Topico {
     private String mensaje;
     private LocalDateTime fechaCreacion;
     private StatusTopico  status;
-    private Long autorId;
-    private Long curso;
+    //private Autor autorId;
+    //private Curso curso;
 
 
 

@@ -1,5 +1,8 @@
 package com.perea.ForoFPerea.topico;
 
+import com.perea.ForoFPerea.autor.DatosAutor;
+import com.perea.ForoFPerea.curso.DatosCurso;
+
 import java.time.LocalDateTime;
 
 public record DatosRegistroTopico(
@@ -8,8 +11,8 @@ public record DatosRegistroTopico(
         String titulo,
         String mensaje,
         LocalDateTime fechaCreacion,
-        StatusTopico  status
-        //Long autorId,
-        //Long curso
+        StatusTopico  status,
+        DatosAutor autor,
+        DatosCurso curso
 ) {
 }
