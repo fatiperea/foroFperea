@@ -9,7 +9,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.time.LocalDateTime;
+
 public class Topico {
+
+    private Long id;
+    private String título;
+    private String mensaje;
+    private LocalDateTime fechaCreacion;
+    private StatusTopico  status;
+    private Long autorId;
+    private Long curso;
+
+
 
 
 }

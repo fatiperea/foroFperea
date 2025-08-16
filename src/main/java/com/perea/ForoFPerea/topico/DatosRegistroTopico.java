@@ -5,11 +5,11 @@ import java.time.LocalDateTime;
 public record DatosRegistroTopico(
 
         Long id,
-        String título,
+        String titulo,
         String mensaje,
         LocalDateTime fechaCreacion,
-        StatusTopico  status,
-        Long autorId,
-        Long curso
+        StatusTopico  status
+        //Long autorId,
+        //Long curso
 ) {
 }
