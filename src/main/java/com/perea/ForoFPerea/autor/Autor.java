@@ -6,18 +6,19 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Getter
+/*@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 
 @Table(name = "autores")
-@Entity(name = "Autor")
+@Entity(name = "Autor")*/
+@Embeddable
 public class Autor {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    //@Id
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    //private Long id;
     private String nombre;
     private String email;
     private String password;
