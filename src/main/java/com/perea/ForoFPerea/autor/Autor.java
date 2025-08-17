@@ -18,6 +18,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 
 @Embeddable
+@AttributeOverrides({
+        @AttributeOverride(name = "nombre", column = @Column(name = "autor_nombre")),
+        @AttributeOverride(name = "email", column = @Column(name = "autor_email")),
+        @AttributeOverride(name = "password", column = @Column(name = "autor_password")),
+        @AttributeOverride(name = "perfil", column = @Column(name = "autor_perfil"))
+})
 public class Autor {
 
     //@Id

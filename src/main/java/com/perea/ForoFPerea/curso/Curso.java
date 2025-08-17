@@ -11,6 +11,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 
 @Embeddable
+@AttributeOverrides({
+        @AttributeOverride(name = "nombre", column = @Column(name = "curso_nombre")),
+        @AttributeOverride(name = "categoria", column = @Column(name = "curso_categoria"))
+})
 public class Curso {
 
     //private Long id;
