@@ -18,6 +18,8 @@ public class Curso {
     @Enumerated(EnumType.STRING)
     private Categoria categoria;
 
+    //public Curso(){}
+
     public Curso(DatosCurso curso) {
         this.nombreCurso=curso.nombreCurso();
         this.categoria=curso.categoria();

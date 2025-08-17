@@ -13,6 +13,10 @@ import lombok.NoArgsConstructor;
 
 @Table(name = "autores")
 @Entity(name = "Autor")*/
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+
 @Embeddable
 public class Autor {
 
@@ -23,6 +27,8 @@ public class Autor {
     private String email;
     private String password;
     private Perfil perfil;
+
+    //public Autor(){}
 
     public Autor(DatosAutor autor) {
 
