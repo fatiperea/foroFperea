@@ -2,7 +2,7 @@ package com.perea.ForoFPerea.curso;
 
 public record DatosCurso(
 
-        String nombre,
+        String nombreCurso,
         Categoria categoria
 ) {
 }
