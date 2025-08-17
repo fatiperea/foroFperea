@@ -32,6 +32,8 @@ public class Autor {
     private String nombre;
     private String email;
     private String password;
+
+    @Enumerated(EnumType.STRING)
     private Perfil perfil;
 
     //public Autor(){}

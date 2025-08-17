@@ -19,6 +19,7 @@ public class Curso {
 
     //private Long id;
     private String nombre;
+
     @Enumerated(EnumType.STRING)
     private Categoria categoria;
 
@@ -35,4 +36,15 @@ public class Curso {
         this.categoria= Categoria.valueOf(categoria);
 
     }
+
+    /*
+    public Curso(String nombre, String categoriaTexto) {
+    this.nombre = nombre;
+    this.categoria = Arrays.stream(Categoria.values())
+        .filter(c -> c.name().equalsIgnoreCase(categoriaTexto))
+        .findFirst()
+        .orElseThrow(() -> new RuntimeException("Categoría inválida: " + categoriaTexto));
+}PUEDE SER UTIL
+
+     */
 }

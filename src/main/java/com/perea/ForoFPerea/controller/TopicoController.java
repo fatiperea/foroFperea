@@ -35,6 +35,10 @@ public class TopicoController {
     public List<DatosListaTopico> listar(){
 
         return topicoRepository.findAll().stream()
+               /* .peek(topico -> {
+                    System.out.println("Curso: " + topico.getCurso());
+                    System.out.println("Categoría: " + topico.getCurso().getCategoria());
+                })*/
                 .map(topico -> {
                     Autor autor = topico.getAutor() != null ? topico.getAutor() : new Autor("Desconocido", "N/A", "", "USER");
                     Curso curso = topico.getCurso() != null ? topico.getCurso() : new Curso("Sin curso", "PROGRAMACION");
