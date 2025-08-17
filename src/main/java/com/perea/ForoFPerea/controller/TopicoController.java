@@ -3,6 +3,7 @@ package com.perea.ForoFPerea.controller;
 import com.perea.ForoFPerea.topico.DatosRegistroTopico;
 import com.perea.ForoFPerea.topico.Topico;
 import com.perea.ForoFPerea.topico.TopicoRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +20,7 @@ public class TopicoController {
 
     @Transactional
     @PostMapping
-    public void registar(@RequestBody DatosRegistroTopico datos){
+    public void registar(@RequestBody @Valid DatosRegistroTopico datos){
 
         //System.out.println(datos);
         topicoRepository.save(new Topico(datos));
