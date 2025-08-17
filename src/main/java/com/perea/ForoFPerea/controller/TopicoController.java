@@ -17,7 +17,7 @@ public class TopicoController {
     @Autowired
     private TopicoRepository topicoRepository;
 
-    //@Transactional
+    @Transactional
     @PostMapping
     public void registar(@RequestBody DatosRegistroTopico datos){
 
