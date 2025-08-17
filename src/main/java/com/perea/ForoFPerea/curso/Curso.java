@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Embeddable
 public class Curso {
 
-    private Long id;
+    //private Long id;
     private String nombreCurso;
     private Categoria categoria;
 }
