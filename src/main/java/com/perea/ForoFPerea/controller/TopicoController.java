@@ -2,14 +2,14 @@ package com.perea.ForoFPerea.controller;
 
 import com.perea.ForoFPerea.autor.Autor;
 import com.perea.ForoFPerea.curso.Curso;
-import com.perea.ForoFPerea.topico.DatosListaTopico;
-import com.perea.ForoFPerea.topico.DatosRegistroTopico;
-import com.perea.ForoFPerea.topico.Topico;
-import com.perea.ForoFPerea.topico.TopicoRepository;
+import com.perea.ForoFPerea.topico.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -54,8 +54,24 @@ public class TopicoController {
                 })
 
                 .toList();
-
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<DatosDetalleTopico> detallar(@PathVariable Long id) {
+
+        var topico = topicoRepository.getReferenceById(id);
+        System.out.println("Curso: " + topico.getCurso());
+        System.out.println("Categoría: " + topico.getCurso().getCategoria());
+                //.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Tópico no encontrado"));
+
+        return ResponseEntity.ok(new DatosDetalleTopico(topico));
+    }
+
+    //@Transactional
+    //@DeleteMapping("/{id}")
+    //public ResponseEntity eliminar(@PathVariable Long id) {
+
+    //}
     /*public ResponseEntity registrar(@RequestBody @Valid DatosRegistroMedico datos, UriComponentsBuilder uriComponentsBuilder){
         //System.out.println(datos);
 
