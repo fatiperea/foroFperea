@@ -11,19 +11,25 @@ public record DatosListaTopico(
         String mensaje,
         LocalDateTime fechaCreación,
         StatusTopico status,
-        Autor autor,
-        Curso curso
+        String autorNombre,
+        String cursoNombre
 ) {
 
     public DatosListaTopico(Topico topico){
 
+        /*this.titulo=topico.getTitulo();
+        this.mensaje=topico.getMensaje();
+        this.fechaCreación=topico.getFechaCreacion();
+        this.status=topico.getStatus();
+        this.autor=topico.getAutor();
+        this.curso=topico.getCurso();*/
         this(
                 topico.getTitulo(),
                 topico.getMensaje(),
                 topico.getFechaCreacion(),
                 topico.getStatus(),
-                topico.getAutor(),
-                topico.getCurso()
+                topico.getAutor().getNombre(),
+                topico.getCurso().getNombre()
         );
 
     }

@@ -44,4 +44,12 @@ public class Autor {
         this.perfil=autor.perfil();
 
     }
+
+    public Autor(String nombre, String email, String password, String perfil) {
+
+        this.nombre=nombre;
+        this.email=email;
+        this.perfil= Perfil.valueOf(perfil);
+        this.password=password;
+    }
 }

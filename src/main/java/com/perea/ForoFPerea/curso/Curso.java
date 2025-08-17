@@ -28,4 +28,11 @@ public class Curso {
         this.nombre=curso.nombre();
         this.categoria=curso.categoria();
     }
+
+    public Curso(String nombre, String categoria) {
+
+        this.nombre=nombre;
+        this.categoria= Categoria.valueOf(categoria);
+
+    }
 }

@@ -38,8 +38,19 @@ public class Topico {
     private StatusTopico  status;
 
     @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "nombre", column = @Column(name = "autor_nombre")),
+            @AttributeOverride(name = "email", column = @Column(name = "autor_email")),
+            @AttributeOverride(name = "password", column = @Column(name = "autor_password")),
+            @AttributeOverride(name = "perfil", column = @Column(name = "autor_perfil"))
+    })
     private Autor autor;
+
     @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "nombre", column = @Column(name = "curso_nombre")),
+            @AttributeOverride(name = "categoria", column = @Column(name = "curso_categoria"))
+    })
     private Curso curso;
 
 
@@ -56,12 +67,12 @@ public class Topico {
                 datos.autor().nombre(),
                 datos.autor().email(),
                 datos.autor().password(),
-                datos.autor().perfil()
+                datos.autor().perfil().name()
         );
 
         this.curso = new Curso(
                 datos.curso().nombre(),
-                datos.curso().categoria()
+                datos.curso().categoria().name()
         );
 
     }
