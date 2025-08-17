@@ -22,4 +22,13 @@ public class Autor {
     private String email;
     private String password;
     private Perfil perfil;
+
+    public Autor(DatosAutor autor) {
+
+        this.nombre=autor.nombre();
+        this.email=autor.email();
+        this.password=autor.password();
+        this.perfil=autor.perfil();
+
+    }
 }

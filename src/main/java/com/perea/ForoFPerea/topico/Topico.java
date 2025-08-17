@@ -30,7 +30,7 @@ public class Topico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String título;
+    private String titulo;
     private String mensaje;
     private LocalDateTime fechaCreacion;
 
@@ -43,6 +43,14 @@ public class Topico {
     private Curso curso;
 
 
+    public Topico(DatosRegistroTopico datos) {
 
+        this.titulo=datos.titulo();
+        this.mensaje=datos.mensaje();
+        this.fechaCreacion=datos.fechaCreacion();
+        this.status=datos.status();
+        this.autor= new Autor(datos.autor());
+        this.curso=new Curso(datos.curso());
 
+    }
 }

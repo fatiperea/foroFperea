@@ -6,9 +6,10 @@ import java.time.LocalDateTime;
 
 public record DatosAutor(
 
-        LocalDateTime fechaCreacion,
-        StatusTopico status,
-        DatosAutor autor
+        String nombre,
+         String email,
+         String password,
+         Perfil perfil
 
 ) {
 }
