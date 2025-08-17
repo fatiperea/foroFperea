@@ -76,4 +76,36 @@ public class Topico {
         );
 
     }
+
+    public void actualizarInfo(@Valid DatosActualizarTopico datos) {
+
+
+        if(datos.titulo() != null){
+
+            this.titulo=datos.titulo();
+        }
+        if(datos.mensaje() != null){
+
+            this.mensaje=datos.mensaje();
+        }
+        if(datos.fechaCreación() != null){
+
+            this.fechaCreacion=datos.fechaCreación();
+        }
+        if(datos.status() != null){
+
+            this.status=datos.status();
+        }
+        if(datos.autorNombre() != null){
+
+            //this.autor.actualizarAutor(datos.);
+        }
+        if(datos.cursoNombre() != null){
+
+            //this.curso=datos.cursoNombre();
+        }
+
+
+
+    }
 }

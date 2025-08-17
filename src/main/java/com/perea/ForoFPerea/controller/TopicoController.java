@@ -44,6 +44,8 @@ public class TopicoController {
                     Curso curso = topico.getCurso() != null ? topico.getCurso() : new Curso("Sin curso", "PROGRAMACION");
 
                     return new DatosListaTopico(
+
+                            topico.getId(),
                             topico.getTitulo(),
                             topico.getMensaje(),
                             topico.getFechaCreacion(),
@@ -65,6 +67,17 @@ public class TopicoController {
                 //.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Tópico no encontrado"));
 
         return ResponseEntity.ok(new DatosDetalleTopico(topico));
+    }
+
+    @Transactional
+    @PutMapping
+    public ResponseEntity actualizar(@RequestBody @Valid DatosActualizarTopico datos){
+
+        var topico= topicoRepository.getReferenceById(datos.id());
+
+        topico.actualizarInfo(datos);
+
+        //return ResponseEntity.ok(new DatosActualizarTopico(topico));
     }
 
     //@Transactional
