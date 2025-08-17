@@ -29,7 +29,7 @@ public class TopicoController {
 
     @GetMapping
     public List<DatosListaTopico> listar(){
-        return topicoRepository.findAll();
+        return topicoRepository.findAll().stream().map(DatosListaTopico::new).toList();
     }
     /*public ResponseEntity registrar(@RequestBody @Valid DatosRegistroMedico datos, UriComponentsBuilder uriComponentsBuilder){
         //System.out.println(datos);

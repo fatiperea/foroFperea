@@ -15,5 +15,17 @@ public record DatosListaTopico(
         Curso curso
 ) {
 
+    public DatosListaTopico(Topico topico){
+
+        this(
+                topico.getTitulo(),
+                topico.getMensaje(),
+                topico.getFechaCreacion(),
+                topico.getStatus(),
+                topico.getAutor(),
+                topico.getCurso()
+        );
+
+    }
 
 }
