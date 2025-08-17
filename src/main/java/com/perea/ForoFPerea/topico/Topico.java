@@ -49,8 +49,20 @@ public class Topico {
         this.mensaje=datos.mensaje();
         this.fechaCreacion=datos.fechaCreacion();
         this.status=datos.status();
-        this.autor= new Autor(datos.autor());
-        this.curso=new Curso(datos.curso());
+        //this.autor= new Autor(datos.autor());
+        //this.curso=new Curso(datos.curso());
+
+        this.autor = new Autor(
+                datos.autor().nombre(),
+                datos.autor().email(),
+                datos.autor().password(),
+                datos.autor().perfil()
+        );
+
+        this.curso = new Curso(
+                datos.curso().nombre(),
+                datos.curso().categoria()
+        );
 
     }
 }

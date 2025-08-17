@@ -13,7 +13,7 @@ public record DatosRegistroTopico(
         //Long id,
         @NotBlank String titulo,//eleji las q dicen hibernate
         @NotBlank String mensaje,
-        @NotBlank LocalDateTime fechaCreacion,
+        @NotNull LocalDateTime fechaCreacion,
         @NotNull StatusTopico  status,
         @NotNull @Valid DatosAutor autor,
         @NotNull @Valid DatosCurso curso

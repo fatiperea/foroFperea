@@ -14,14 +14,14 @@ import lombok.NoArgsConstructor;
 public class Curso {
 
     //private Long id;
-    private String nombreCurso;
+    private String nombre;
     @Enumerated(EnumType.STRING)
     private Categoria categoria;
 
     //public Curso(){}
 
     public Curso(DatosCurso curso) {
-        this.nombreCurso=curso.nombreCurso();
+        this.nombre=curso.nombre();
         this.categoria=curso.categoria();
     }
 }
