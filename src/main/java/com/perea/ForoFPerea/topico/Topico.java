@@ -60,8 +60,6 @@ public class Topico {
         this.mensaje=datos.mensaje();
         this.fechaCreacion=datos.fechaCreacion();
         this.status=datos.status();
-        //this.autor= new Autor(datos.autor());
-        //this.curso=new Curso(datos.curso());
 
         this.autor = new Autor(
                 datos.autor().nombre(),
@@ -88,24 +86,10 @@ public class Topico {
 
             this.mensaje=datos.mensaje();
         }
-        if(datos.fechaCreación() != null){
-
-            this.fechaCreacion=datos.fechaCreación();
-        }
         if(datos.status() != null){
 
             this.status=datos.status();
         }
-        if(datos.autorNombre() != null){
-
-            //this.autor.actualizarAutor(datos.);
-        }
-        if(datos.cursoNombre() != null){
-
-            //this.curso=datos.cursoNombre();
-        }
-
-
 
     }
 }

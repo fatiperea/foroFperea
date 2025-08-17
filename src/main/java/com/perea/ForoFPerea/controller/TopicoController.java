@@ -71,7 +71,7 @@ public class TopicoController {
 
     @Transactional
     @PutMapping
-    public ResponseEntity actualizar(@RequestBody @Valid DatosActualizarTopico datos){
+    public void actualizar(@RequestBody @Valid DatosActualizarTopico datos){
 
         var topico= topicoRepository.getReferenceById(datos.id());
 

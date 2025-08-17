@@ -1,6 +1,8 @@
 package com.perea.ForoFPerea.autor;
 
+import com.perea.ForoFPerea.topico.DatosActualizarTopico;
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -53,5 +55,10 @@ public class Autor {
         this.email=email;
         this.perfil= Perfil.valueOf(perfil);
         this.password=password;
+    }
+
+    public void actualizarAutor(@Valid DatosAutor datos){
+
+        this.nombre=datos.nombre();
     }
 }

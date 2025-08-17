@@ -1,16 +1,15 @@
 package com.perea.ForoFPerea.topico;
 
+import jakarta.validation.constraints.NotNull;
+
 import java.time.LocalDateTime;
 
 public record DatosActualizarTopico(
 
-        Long id,
+        @NotNull Long id,
         String titulo,
         String mensaje,
-        LocalDateTime fechaCreación,
-        StatusTopico status,
-        String autorNombre,
-        String cursoNombre
+        StatusTopico status
 
 ) {
 }

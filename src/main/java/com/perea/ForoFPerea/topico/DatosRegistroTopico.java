@@ -10,8 +10,7 @@ import java.time.LocalDateTime;
 
 public record DatosRegistroTopico(
 
-        //Long id,
-        @NotBlank String titulo,//eleji las q dicen hibernate
+        @NotBlank String titulo,
         @NotBlank String mensaje,
         @NotNull LocalDateTime fechaCreacion,
         @NotNull StatusTopico  status,
