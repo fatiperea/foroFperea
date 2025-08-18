@@ -1,5 +1,6 @@
 package com.perea.ForoFPerea.topico;
 
+
 public record DatosActualizarTopico(
 
          String titulo,
@@ -7,4 +8,6 @@ public record DatosActualizarTopico(
          StatusTopico status
 
 ) {
-}
+
+    }
+

@@ -6,9 +6,11 @@ import com.perea.ForoFPerea.topico.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 
 import java.util.List;
@@ -23,21 +25,19 @@ public class TopicoController {
 
     @Transactional
     @PostMapping
-    public void registar(@RequestBody @Valid DatosRegistroTopico datos){
+    public ResponseEntity registar(@RequestBody @Valid DatosRegistroTopico datos, UriComponentsBuilder uriComponentsBuilder){
 
-        //System.out.println(datos);
+        var topico= new Topico(datos);
+        topicoRepository.save(topico);
+        var uri= uriComponentsBuilder.path("/topicos/{id}").buildAndExpand(topico.getId()).toUri();
         topicoRepository.save(new Topico(datos));
-
+        return ResponseEntity.created(uri).body(new DatosDetalleTopico(topico));
     }
 
     @GetMapping
-    public List<DatosListaTopico> listar(){
+    public ResponseEntity<List<DatosListaTopico>> listar(){
 
-        return topicoRepository.findAll().stream()
-               /* .peek(topico -> {
-                    System.out.println("Curso: " + topico.getCurso());
-                    System.out.println("Categoría: " + topico.getCurso().getCategoria());
-                })*/
+        List<DatosListaTopico> listaTopicos= topicoRepository.findAll().stream()
                 .map(topico -> {
                     Autor autor = topico.getAutor() != null ? topico.getAutor() : new Autor("Desconocido", "N/A", "", "USER");
                     Curso curso = topico.getCurso() != null ? topico.getCurso() : new Curso("Sin curso", "PROGRAMACION");
@@ -53,8 +53,10 @@ public class TopicoController {
                             curso.getNombre()
                     );
                 })
-
                 .toList();
+
+        return ResponseEntity.ok(listaTopicos);
+
     }
 
     @GetMapping("/{id}")
@@ -75,26 +77,27 @@ public class TopicoController {
 
     @Transactional
     @PutMapping("/{id}")
-    public void actualizar(@PathVariable Long id, @Valid DatosActualizarTopico datos){
+    public ResponseEntity actualizar(@PathVariable Long id,@RequestBody @Valid DatosActualizarTopico datos){
 
         Optional<Topico> topico = topicoRepository.findById(id);
 
-        if (topico.isPresent()) {
-
-            if (datos.titulo() != null && datos.mensaje() != null && datos.status()!= null)
-            {
-                Topico topicoActualizado = topico.get();
-                topicoActualizado.actualizarInfo(datos);
-            }
-
+        if (topico.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
 
-        //var topico= topicoRepository.getReferenceById(datos.id());
-        //return ResponseEntity.ok(new DatosActualizarTopico(topico));
+        Topico topicoActual = topico.get();
+
+        if (datos.titulo() == null && datos.mensaje() == null && datos.status() == null) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        topicoActual.actualizarInfo(datos);
+        return ResponseEntity.ok(new DatosDetalleTopico(topicoActual));
+
     }
     @Transactional
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable Long id){
+    public ResponseEntity eliminar(@PathVariable Long id){
 
         Optional<Topico> topico = topicoRepository.findById(id);
 
@@ -102,23 +105,8 @@ public class TopicoController {
             //return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Tópico no encontrado");
             topicoRepository.deleteById(id);
         }
-
-
-
+        return ResponseEntity.noContent().build();
     }
 
-    //@Transactional
-    //@DeleteMapping("/{id}")
-    //public ResponseEntity eliminar(@PathVariable Long id) {
-
-    //}
-    /*public ResponseEntity registrar(@RequestBody @Valid DatosRegistroMedico datos, UriComponentsBuilder uriComponentsBuilder){
-        //System.out.println(datos);
-
-        var medico= new Topico(datos);
-        repository.save(medico);
-        var uri= uriComponentsBuilder.path("/medicos/{id}").buildAndExpand(medico.getId()).toUri();
-        return ResponseEntity.created(uri).body(new DatosDetalleMedico(medico));
-    }*/
 
 }
