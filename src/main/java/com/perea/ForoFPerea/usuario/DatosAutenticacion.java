@@ -1,4 +1,4 @@
-package com.perea.ForoFPerea.domain.autor;
+package com.perea.ForoFPerea.usuario;
 
 public record DatosAutenticacion(
 

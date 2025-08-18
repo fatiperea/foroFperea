@@ -1,5 +1,6 @@
-package com.perea.ForoFPerea.domain.autor;
+package com.perea.ForoFPerea.usuario;
 
+import com.perea.ForoFPerea.domain.autor.AutorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

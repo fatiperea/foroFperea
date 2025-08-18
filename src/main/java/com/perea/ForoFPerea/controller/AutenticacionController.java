@@ -1,6 +1,6 @@
 package com.perea.ForoFPerea.controller;
 
-import com.perea.ForoFPerea.domain.autor.DatosAutenticacion;
+import com.perea.ForoFPerea.usuario.DatosAutenticacion;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
