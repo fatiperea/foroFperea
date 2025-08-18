@@ -1,4 +1,4 @@
-package com.perea.ForoFPerea.autor;
+package com.perea.ForoFPerea.domain.autor;
 
 public enum Perfil {
 

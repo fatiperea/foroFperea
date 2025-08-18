@@ -1,21 +1,22 @@
-package com.perea.ForoFPerea.topico;
+package com.perea.ForoFPerea.domain.topico;
 
 import java.time.LocalDateTime;
 
-public record DatosDetalleTopico(
+public record DatosListaTopico(
 
+        Long id,
         String titulo,
         String mensaje,
         LocalDateTime fechaCreación,
         StatusTopico status,
         String autorNombre,
         String cursoNombre
-
 ) {
 
-    public DatosDetalleTopico(Topico topico){
+    public DatosListaTopico(Topico topico){
 
         this(
+                topico.getId(),
                 topico.getTitulo(),
                 topico.getMensaje(),
                 topico.getFechaCreacion(),
@@ -25,6 +26,5 @@ public record DatosDetalleTopico(
         );
 
     }
-
 
 }

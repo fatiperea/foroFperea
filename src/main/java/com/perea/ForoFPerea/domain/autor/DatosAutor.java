@@ -1,11 +1,8 @@
-package com.perea.ForoFPerea.autor;
+package com.perea.ForoFPerea.domain.autor;
 
-import com.perea.ForoFPerea.topico.StatusTopico;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotBlank;
-
-import java.time.LocalDateTime;
 
 public record DatosAutor(
 

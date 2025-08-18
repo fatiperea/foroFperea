@@ -1,7 +1,7 @@
-package com.perea.ForoFPerea.topico;
+package com.perea.ForoFPerea.domain.topico;
 
-import com.perea.ForoFPerea.autor.DatosAutor;
-import com.perea.ForoFPerea.curso.DatosCurso;
+import com.perea.ForoFPerea.domain.autor.DatosAutor;
+import com.perea.ForoFPerea.domain.curso.DatosCurso;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotBlank;

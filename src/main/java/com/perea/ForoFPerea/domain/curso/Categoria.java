@@ -1,4 +1,4 @@
-package com.perea.ForoFPerea.curso;
+package com.perea.ForoFPerea.domain.curso;
 
 public enum Categoria {
 

@@ -1,10 +1,8 @@
-package com.perea.ForoFPerea.autor;
+package com.perea.ForoFPerea.domain.autor;
 
-import com.perea.ForoFPerea.topico.DatosActualizarTopico;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

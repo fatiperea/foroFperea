@@ -1,8 +1,8 @@
 package com.perea.ForoFPerea.controller;
 
-import com.perea.ForoFPerea.autor.Autor;
-import com.perea.ForoFPerea.curso.Curso;
-import com.perea.ForoFPerea.topico.*;
+import com.perea.ForoFPerea.domain.autor.Autor;
+import com.perea.ForoFPerea.domain.curso.Curso;
+import com.perea.ForoFPerea.domain.topico.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 

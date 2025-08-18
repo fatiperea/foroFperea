@@ -1,4 +1,4 @@
-package com.perea.ForoFPerea.topico;
+package com.perea.ForoFPerea.domain.topico;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

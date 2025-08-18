@@ -1,4 +1,4 @@
-package com.perea.ForoFPerea.topico;
+package com.perea.ForoFPerea.domain.topico;
 
 public enum StatusTopico {
 

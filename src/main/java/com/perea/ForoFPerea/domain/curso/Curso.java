@@ -1,8 +1,7 @@
-package com.perea.ForoFPerea.curso;
+package com.perea.ForoFPerea.domain.curso;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
