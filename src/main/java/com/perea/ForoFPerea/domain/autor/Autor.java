@@ -29,7 +29,7 @@ import java.util.List;
         @AttributeOverride(name = "password", column = @Column(name = "autor_password")),
         @AttributeOverride(name = "perfil", column = @Column(name = "autor_perfil"))
 })*/
-public class Autor implements UserDetails {
+public class Autor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -60,35 +60,6 @@ public class Autor implements UserDetails {
         this.password=password;
     }
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
-    }
-
-    @Override
-    public String getUsername() {
-        return email;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
 
    /* public void actualizarAutor(@Valid DatosAutor datos){
 
