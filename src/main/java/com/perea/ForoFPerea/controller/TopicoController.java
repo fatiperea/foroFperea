@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Optional;
 
 import static java.util.stream.Collectors.toList;
 
@@ -71,13 +72,36 @@ public class TopicoController {
 
     @Transactional
     @PutMapping
-    public void actualizar(@RequestBody @Valid DatosActualizarTopico datos){
+    public void actualizar(@PathVariable @Valid DatosActualizarTopico datos){
 
-        var topico= topicoRepository.getReferenceById(datos.id());
+        Optional<Topico> topico = topicoRepository.findById(datos.id());
 
-        topico.actualizarInfo(datos);
+        if (topico.isPresent()) {
+
+            var topicoActualizado= topicoRepository.getReferenceById(datos.id());
+            topicoActualizado.actualizarInfo(datos);
+
+        }
+
+        //var topico= topicoRepository.getReferenceById(datos.id());
+
+
 
         //return ResponseEntity.ok(new DatosActualizarTopico(topico));
+    }
+    @Transactional
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable Long id){
+
+        Optional<Topico> topico = topicoRepository.findById(id);
+
+        if (topico.isPresent()) {
+            //return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Tópico no encontrado");
+            topicoRepository.deleteById(id);
+        }
+
+
+
     }
 
     //@Transactional
