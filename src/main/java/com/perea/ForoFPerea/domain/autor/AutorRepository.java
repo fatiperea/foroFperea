@@ -5,7 +5,5 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public interface AutorRepository extends JpaRepository<Autor, Long> {
 
-    //UserDetails findByEmail(String email);
-
 
 }
