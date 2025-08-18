@@ -30,13 +30,14 @@ public class Topico {
     @Enumerated(EnumType.STRING)
     private StatusTopico  status;
 
-    @Embedded
+    /*@Embedded
     @AttributeOverrides({
             @AttributeOverride(name = "nombre", column = @Column(name = "autor_nombre")),
             @AttributeOverride(name = "email", column = @Column(name = "autor_email")),
             @AttributeOverride(name = "password", column = @Column(name = "autor_password")),
             @AttributeOverride(name = "perfil", column = @Column(name = "autor_perfil"))
-    })
+    })*/
+    @Transient
     private Autor autor;
 
     @Embedded

@@ -3,32 +3,31 @@ package com.perea.ForoFPerea.domain.autor;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-/*@Getter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 
 @Table(name = "autores")
-@Entity(name = "Autor")*/
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
+@Entity(name = "Autor")
 
-@Embeddable
+
+/*@Embeddable
 @AttributeOverrides({
         @AttributeOverride(name = "nombre", column = @Column(name = "autor_nombre")),
         @AttributeOverride(name = "email", column = @Column(name = "autor_email")),
         @AttributeOverride(name = "password", column = @Column(name = "autor_password")),
         @AttributeOverride(name = "perfil", column = @Column(name = "autor_perfil"))
-})
+})*/
 public class Autor {
 
-    //@Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
-    //private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String nombre;
     private String email;
     private String password;
@@ -55,8 +54,8 @@ public class Autor {
         this.password=password;
     }
 
-    public void actualizarAutor(@Valid DatosAutor datos){
+   /* public void actualizarAutor(@Valid DatosAutor datos){
 
         this.nombre=datos.nombre();
-    }
+    }*/
 }
