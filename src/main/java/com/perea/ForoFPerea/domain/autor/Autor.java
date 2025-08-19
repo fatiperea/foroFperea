@@ -16,11 +16,6 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-/*@EqualsAndHashCode(of = "id")
-
-@Table(name = "autores")
-@Entity(name = "Autor")*/
-
 
 @Embeddable
 @AttributeOverrides({
@@ -31,17 +26,12 @@ import java.util.List;
 })
 public class Autor {
 
-    //@Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
-    //private Long id;
     private String nombre;
     private String email;
     private String password;
 
     @Enumerated(EnumType.STRING)
     private Perfil perfil;
-
-    //public Autor(){}
 
     public Autor(DatosAutor autor) {
 
@@ -60,9 +50,4 @@ public class Autor {
         this.password=password;
     }
 
-
-   /* public void actualizarAutor(@Valid DatosAutor datos){
-
-        this.nombre=datos.nombre();
-    }*/
 }
