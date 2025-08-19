@@ -25,7 +25,7 @@ public class TopicoController {
 
     @Transactional
     @PostMapping
-    public ResponseEntity registar(@RequestBody @Valid DatosRegistroTopico datos, UriComponentsBuilder uriComponentsBuilder){
+    public ResponseEntity registrar(@RequestBody @Valid DatosRegistroTopico datos, UriComponentsBuilder uriComponentsBuilder){
 
         var topico= new Topico(datos);
         topicoRepository.save(topico);

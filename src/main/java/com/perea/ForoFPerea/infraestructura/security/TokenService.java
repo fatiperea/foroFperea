@@ -26,10 +26,10 @@ public class TokenService {
             return JWT.create()
                     .withIssuer("API ForoFPerea")
                     .withSubject(usuario.getUser())
-                    .withExpiresAt(fechaExpiracion())
+                    .withExpiresAt(fechaExpiracion())//probar quitando esto
                     .sign(algoritmo);
         } catch (JWTCreationException exception){
-            // Invalid Signing configuration / Couldn't convert Claims.
+
             throw new RuntimeException("error al generar token", exception);
         }
     }
@@ -54,7 +54,7 @@ public class TokenService {
 
         }catch (JWTVerificationException exception){
 
-            throw new RuntimeException("Token invalido o expirado");
+            throw new RuntimeException("Token inválido o expirado");
         }
 
     }

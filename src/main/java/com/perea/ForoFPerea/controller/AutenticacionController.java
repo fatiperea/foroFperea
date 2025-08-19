@@ -33,10 +33,4 @@ public class AutenticacionController {
         return ResponseEntity.ok(new DatosTokenJWT(tokenJWT));
     }
 
-    /*@Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
-
-        return configuration.getAuthenticationManager();
-    }*/
-
 }
