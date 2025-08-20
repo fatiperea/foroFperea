@@ -66,11 +66,11 @@ public class TopicoController {
 
         if (topicoPrueba.isEmpty()) {
             throw new RuntimeException("Tópico con ID " + id + " no encontrado.");
-            //return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+
         }
 
         var topico = topicoRepository.getReferenceById(id);
-                //.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Tópico no encontrado"));
+
 
         return ResponseEntity.ok(new DatosDetalleTopico(topico));
     }
@@ -102,7 +102,7 @@ public class TopicoController {
         Optional<Topico> topico = topicoRepository.findById(id);
 
         if (topico.isPresent()) {
-            //return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Tópico no encontrado");
+
             topicoRepository.deleteById(id);
         }
         return ResponseEntity.noContent().build();
